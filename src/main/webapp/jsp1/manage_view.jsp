@@ -14,9 +14,11 @@
         var inputPages1 = $("#pagenum1").val();
         var totalPages1 = $("#totalPages").val();
 
-        var regNumber = /\d+/;
-        var regString = /[a-zA-Z]+/;
-        if(regString.test(inputPages1)||!regString.test(inputPages1)&&!regNumber.test(inputPages1)){
+
+        // var re = /^-?[0-9]+.?[0-9]*/;
+        // var re1 =  /^(-|\+)?\d+$/;
+        var re = /^(-)?[1-9][0-9]*$/;
+        if(!re.test(inputPages1)){
             alert("请输入合法的数据");
             return false;
         }
