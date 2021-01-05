@@ -19,14 +19,14 @@
         select count(*) from user
     </select>
     <select id="selectCurrentPage" resultType="User">
-        select * from user where flag="宿舍管理员" or flag="学生" limit #{pageStartIndex},#{pageSize}
+        select * from user where (flag="宿舍管理员" or flag="学生") limit #{pageStartIndex},#{pageSize}
     </select>
     <select id="selectCompound1" resultType="User">
         select * from user
         <where>
-            flag="宿舍管理员" or flag="学生"
+            (flag="宿舍管理员" or flag="学生")
             <if test="user.username !=null&amp;&amp;user.username !=''">
-                user.username = #{user.username}
+               and user.username = #{user.username}
             </if>
         </where>
         limit #{pageStartIndex},6
