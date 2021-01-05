@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wcc.dao.IBuildDao">
+    <insert id="insertBuild">
+      insert into apartment (apartment_id,apartment_name,apartment_location,apartment_nature,apartment_remark) values(#{apartment_id},#{apartment_name},#{apartment_location},#{apartment_nature},#{apartment_remark})
+  </insert>
+    <update id="updateBuild">
+        update apartment set apartment_id=#{apartment_id},apartment_name=#{apartment_name},apartment_location=#{apartment_location},apartment_nature=#{apartment_nature},apartment_remark=#{apartment_remark} where apartment_id =#{apartment_id}
+    </update>
+    <delete id="deleteBuild" >
+        delete from apartment whereapartment_id= #{apartment_id}
+    </delete>
+    <select id="selectBuildById" resultType="Build">
+        select * from apartment where apartment_id = #{apartment_id}
+    </select>
+    <select id="selectAllBuild2" resultType="Build">
+        select * from apartment limit #{pageStartIndex},6
+    </select>
+    <select id="selectAllBuild1" resultType="int">
+        select count(*) from apartment
+    </select>
+    <select id="selectCurrentPage" resultType="Build">
+        select * from apartment limit #{pageStartIndex},#{pageSize}
+    </select>
+    <select id="selectCompound1" resultType="Build">
+        select * from apartment
+        <where>
+            <if test="apartment.apartment_id !=null&amp;&amp;apartment.apartment_id !=''">
+                apartment.apartment_id = #{apartment.apartment_id}
+            </if>
+            <if test="apartment.apartment_name != null&amp;&amp;apartment.apartment_name!=''">
+                and apartment.apartment_name = #{apartment.apartment_name}
+            </if>
+            <if test="apartment.apartment_nature != null&amp;&amp;apartment.apartment_nature!=''">
+                and apartment.apartment_nature = #{apartment.apartment_nature}
+            </if>
+            <if test="apartment.apartment_location != null&amp;&amp;apartment.apartment_location!=''">
+                and apartment.apartment_location like '%' #{apartment.apartment_location} '%'
+            </if>
+        </where>
+        limit #{pageStartIndex},6
+    </select>
+</mapper>

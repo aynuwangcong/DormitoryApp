@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wcc.dao.IAbsenceDao">
+    <insert id="insertAbsence">
+      insert into absence (student_id,student_name,apartment_name,dormitory,time,leave_if,cause) values(#{student_id},#{student_name},#{apartment_name},#{dormitory},#{time},#{leave_if},#{cause})
+  </insert>
+    <update id="updateAbsence">
+        update absence set student_id=#{student_id},student_name=#{student_name},apartment_name=#{apartment_name},dormitory=#{dormitory},time=#{time},leave_if=#{leave_if},cause=#{cause} where student_id =#{student_id}
+    </update>
+    <update id="updateAbsence1">
+        update absence set leave_if="已补假",cause=#{cause} where student_id =#{student_id}
+    </update>
+    <delete id="deleteAbsence" >
+        delete from absence where student_id= #{student_id}
+    </delete>
+    <select id="selectAbsenceById" resultType="Absence">
+        select * from absence where student_id = #{student_id}
+    </select>
+    <select id="selectAllAbsence" resultType="Absence">
+        select * from absence where leave_if="否" limit #{pageStartIndex},6
+    </select>
+    <select id="selectAllAbsence2" resultType="Absence">
+        select * from absence limit #{pageStartIndex},6
+    </select>
+    <select id="selectAllAbsence1" resultType="int">
+        select count(*) from absence
+    </select>
+    <select id="selectAllAbsence3" resultType="int">
+        select count(*) from absence where leave_if="否"
+    </select>
+    <select id="selectCurrentPage" resultType="Absence">
+        select * from absence limit #{pageStartIndex},#{pageSize}
+    </select>
+    <select id="selectCurrentPage1" resultType="Absence">
+        select * from absence where leave_if="否" limit #{pageStartIndex},#{pageSize}
+    </select>
+    <select id="selectCompound1" resultType="Absence">
+        select * from absence
+        <where>
+            <if test="absence.student_id !=null&amp;&amp;absence.student_id !=''">
+                absence.student_id = #{absence.student_id}
+            </if>
+            <if test="absence.student_name !=null&amp;&amp;absence.student_name !=''">
+                and absence.student_name = #{absence.student_name}
+            </if>
+            <if test="absence.apartment_name != null&amp;&amp;absence.apartment_name!=''">
+                and absence.apartment_name = #{absence.apartment_name}
+            </if>
+            <if test="absence.dormitory != null&amp;&amp;absence.dormitory!=''">
+                and absence.dormitory = #{absence.dormitory}
+            </if>
+            <if test="absence.time != null&amp;&amp;absence.time!=''">
+                and absence.time = #{absence.time}
+            </if>
+        </where>
+        limit #{pageStartIndex},6
+    </select>
+    <select id="selectCompound2" resultType="Absence">
+        select * from absence where leave_if="否"
+            <if test="absence.student_id !=null&amp;&amp;absence.student_id !=''">
+                and absence.student_id = #{absence.student_id}
+            </if>
+            <if test="absence.student_name !=null&amp;&amp;absence.student_name !=''">
+                and absence.student_name = #{absence.student_name}
+            </if>
+            <if test="absence.apartment_name != null&amp;&amp;absence.apartment_name!=''">
+                and absence.apartment_name = #{absence.apartment_name}
+            </if>
+            <if test="absence.dormitory != null&amp;&amp;absence.dormitory!=''">
+                and absence.dormitory = #{absence.dormitory}
+            </if>
+            <if test="absence.time != null&amp;&amp;absence.time!=''">
+                and absence.time = #{absence.time}
+            </if>
+        limit #{pageStartIndex},6
+    </select>
+</mapper>

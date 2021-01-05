@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--注册组件扫描器-->
+    <context:component-scan base-package="com.wcc.handler"/>
+
+
+    <!--mvc注解驱动-->
+    <mvc:annotation-driven/>
+
+    <!--静态资源访问问题-->
+    <mvc:default-servlet-handler/>
+
+    <!--注册视图解析器
+            功能：将逻辑视图转换为物理视图
+            逻辑视图：welcome
+            物理视图：/WEB-INF/welcome.jsp
+            其实，这个视图解析器就是做了一个机械的字符串拼接
+    -->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/jsp1/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+    <!-- 配置文件上传解析器 MultipartResolver -->
+    <bean id="multipartResolver" class=
+            "org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <!-- 设置请求编码格式-->
+        <property name="defaultEncoding" value="UTF-8" />
+    </bean>
+<!--    拦截器的配置-->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <mvc:exclude-mapping path="/login/*"/>
+            <bean class="com.wcc.page.LoginInterceptor">
+
+            </bean>
+        </mvc:interceptor>
+    </mvc:interceptors>
+
+</beans>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration status="OFF">
+	<appenders>
+		<Console name="myConsole" target="SYSTEM_OUT">
+			<PatternLayout pattern="[%-5p] %m%n" />
+		</Console>
+	</appenders>
+	
+	<loggers>
+		<logger name="com.wcc.dao" level="trace" additivity="false">
+			<appender-ref ref="myConsole" />
+		</logger>
+		<!--<root level="debug">
+			<appender-ref ref="myConsole" />
+		</root>-->
+	</loggers>
+	
+</configuration>
+
+
+
+
+
+

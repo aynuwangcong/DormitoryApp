@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/aop
+       https://www.springframework.org/schema/aop/spring-aop.xsd
+        http://www.springframework.org/schema/context
+        https://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd">
+    <!--加载jdbc属性文件-->
+    <context:property-placeholder location="jdbc.properties"/>
+    <!--注册DataSource数据源：Spring内置的-->
+    <bean id="myDataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="${jdbc.driver}"/>
+        <property name="url" value="${jdbc.url}"/>
+        <property name="username" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/>
+    </bean>
+    <!--注册sqlSessionFactory-->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="myDataSource"/>
+        <!--mybatis的主配置文件加载-->
+        <property name="configLocation" value="mybatis.xml"/>
+    </bean>
+
+   <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+       <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
+       <property name="basePackage" value="com.wcc.dao"/>
+   </bean>
+
+    <!--注册Service层对象-->
+    <bean id="studentService" class="com.wcc.service.IStudentServiceImpl">
+        <property name="studentDao" ref="IStudentDao"/>
+    </bean>
+    <!--注册Service层对象-->
+    <bean id="userService" class="com.wcc.service.IUserServiceImpl">
+        <property name="userDao" ref="IUserDao"/>
+    </bean>
+    <!--注册Service层对象-->
+    <bean id="manageService" class="com.wcc.service.IManageServiceImpl">
+        <property name="manageDao" ref="IManageDao"/>
+    </bean>
+    <!--注册Service层对象-->
+    <bean id="buildService" class="com.wcc.service.IBuildServiceImpl">
+        <property name="buildDao" ref="IBuildDao"/>
+    </bean>
+    <!--注册Service层对象-->
+    <bean id="absenceService" class="com.wcc.service.IAbsenceServiceImpl">
+        <property name="absenceDao" ref="IAbsenceDao"/>
+    </bean>
+
+
+
+<!--&lt;!&ndash;   接口开发,扫描 com.wcc.dao包 ，写在此包下的接口即可被扫描到 &ndash;&gt;-->
+<!--    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">-->
+<!--        <property name="basePackage" value="com.wcc.dao" />-->
+<!--    </bean>-->
+<!--&lt;!&ndash;   配置扫描Service&ndash;&gt;-->
+<!--    <context:component-scan base-package="com.wcc.service"/>-->
+
+</beans>
