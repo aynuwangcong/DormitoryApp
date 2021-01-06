@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50540
 File Encoding         : 65001
 
-Date: 2021-01-04 22:54:00
+Date: 2021-01-06 20:55:42
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -33,6 +33,7 @@ CREATE TABLE `absence` (
 -- ----------------------------
 -- Records of absence
 -- ----------------------------
+INSERT INTO `absence` VALUES ('000', '王聪聪', '菊苑5号楼', '412寝室', '2021-01-05', '否', '未知');
 INSERT INTO `absence` VALUES ('111', '李四', '南苑3号楼', '412寝室', '2021-01-04', '已补假', '我偷偷出去玩了');
 INSERT INTO `absence` VALUES ('184804266', '王聪聪', '南苑1号楼', '211寝室', '2021-01-04', '否', '未知');
 INSERT INTO `absence` VALUES ('184804310', '王聪聪', '北苑1号楼', '406寝室', '2021-01-04', '是', '回家');
@@ -78,7 +79,7 @@ CREATE TABLE `manage` (
   `telphone` varchar(255) DEFAULT NULL,
   `apartment_id` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=gb2312;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=gb2312;
 
 -- ----------------------------
 -- Records of manage
@@ -90,6 +91,12 @@ INSERT INTO `manage` VALUES ('5', '18480428', '王五', '26', '女', '菊苑4号
 INSERT INTO `manage` VALUES ('6', '18480429', '小红', '36', '女', '兰苑6号楼', '男寝', '18348325647', '103');
 INSERT INTO `manage` VALUES ('7', '18480510', '小兰', '26', '女', '南苑4号楼', '女寝', '18348325647', '102');
 INSERT INTO `manage` VALUES ('9', '18480425', '李四', '36', '男', '竹苑3号楼', '女寝', '18348325647', '0');
+INSERT INTO `manage` VALUES ('12', '1', '王聪聪', '26', '男', '菊苑5号楼', '女寝', '18348325647', null);
+INSERT INTO `manage` VALUES ('13', '2', '王聪聪', '36', '男', '兰苑2号楼', '女寝', '18348325647', null);
+INSERT INTO `manage` VALUES ('14', '3', '王聪聪', '36', '男', '兰苑2号楼', '女寝', '18348325647', null);
+INSERT INTO `manage` VALUES ('15', '4', '王聪聪', '36', '男', '兰苑3号楼', '女寝', '18348325647', null);
+INSERT INTO `manage` VALUES ('16', '5', '王聪聪', '36', '男', '兰苑1号楼', '女寝', '18348325647', null);
+INSERT INTO `manage` VALUES ('17', '6', '王聪聪', '36', '女', '兰苑2号楼', '女寝', '18348325647', null);
 
 -- ----------------------------
 -- Table structure for `student`
@@ -117,9 +124,9 @@ INSERT INTO `student` VALUES ('2', '184804312', '王大聪', '19', '男', '南�
 INSERT INTO `student` VALUES ('3', '184804313', '王聪明', '18', '女', '竹苑2号楼', '412寝室', '18348325644', '1');
 INSERT INTO `student` VALUES ('4', '184804314', '张三', '19', '男', '北苑2号楼', '211寝室', '18348325645', '2');
 INSERT INTO `student` VALUES ('5', '184804320', '李四', '18', '女', '竹苑2号楼', '122寝室', '18348325646', '3');
-INSERT INTO `student` VALUES ('6', '184804333', '王二', '19', '男', '菊苑4号楼', '520寝室', '18348325647', '1');
-INSERT INTO `student` VALUES ('17', '111', '李四', '19', '男', '南苑3号楼', '152寝室', '18348325647', null);
-INSERT INTO `student` VALUES ('18', '222', '王五', '18', '男', '梅苑3号楼', '412寝室', '18348325647', null);
+INSERT INTO `student` VALUES ('6', '184804333', '王二', '20', '男', '菊苑4号楼', '520寝室', '18348325647', '1');
+INSERT INTO `student` VALUES ('17', '111', '李四', '19', '女', '南苑3号楼', '152寝室', '18348325647', null);
+INSERT INTO `student` VALUES ('18', '222', '王五', '18', '女', '梅苑3号楼', '412寝室', '18348325647', null);
 INSERT INTO `student` VALUES ('19', '333', '王聪聪', '18', '男', '兰苑6号楼', '520寝室', '18348325647', null);
 INSERT INTO `student` VALUES ('24', '184804310', '王聪聪', '12', '男', '梅苑3号楼', '211寝室', '18348325641', '1');
 
@@ -138,11 +145,12 @@ CREATE TABLE `user` (
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES ('aaa', '111', '王二', '学生');
+INSERT INTO `user` VALUES ('aaa', '111', '小聪', '学生');
 INSERT INTO `user` VALUES ('bbb', '111', '小红', '学生');
 INSERT INTO `user` VALUES ('ccc', '111', '小兰', '学生');
 INSERT INTO `user` VALUES ('cong', '111', '李四', '宿舍管理员');
 INSERT INTO `user` VALUES ('ddd', '111', '小米', '学生');
+INSERT INTO `user` VALUES ('eee', '111', '小小', '学生');
 INSERT INTO `user` VALUES ('wang', '123456', '王聪聪', '系统管理员');
 INSERT INTO `user` VALUES ('wcc', '111', '小明', '宿舍管理员');
 INSERT INTO `user` VALUES ('www', '111', '张三', '宿舍管理员');
