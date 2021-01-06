@@ -124,8 +124,13 @@ public class AbsenceHandler {
         Page<Absence> page = absenceService.findCurrentPage(pagenum);
         request.setAttribute("page",page);
 
-        request.setAttribute("mainPage", "/jsp1/absence_view.jsp");
 
+        User user1 = (User) request.getSession().getAttribute("user");
+        if("学生".equals(user1.getFlag())){
+            request.setAttribute("mainPage", "/jsp1/student_absence_view.jsp");
+        }else {
+            request.setAttribute("mainPage", "/jsp1/absence_view.jsp");
+        }
         //设置响应视图
         User user = (User) request.getSession().getAttribute("user");
         if ("系统管理员".equals(user.getFlag())) {

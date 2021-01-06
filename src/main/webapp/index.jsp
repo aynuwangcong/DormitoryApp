@@ -5,9 +5,8 @@
         var username=document.getElementById("username").value;
         var password=document.getElementById("password").value;
 
-
-        if(username==""||password==""){
-            document.getElementById("error").innerHTML="你还没有输入账号和密码！";
+        if(username==""&&password==""){
+            document.getElementById("error3").innerHTML="你还没有输入账号和密码！";
             return false;
         }
         return true;
@@ -103,13 +102,13 @@
 
 
         <label class="radio inline">
-            <input id="admin" type="radio" name="flag" value="系统管理员"  checked/> 系统管理员
+            <input id="admin" type="radio" name="flag" value="系统管理员" checked /> 系统管理员
         </label>
         <label class="radio inline">
-            <input id="dormManager" type="radio" name="flag" value="宿舍管理员" ${userType==2?'checked':''} /> 宿舍管理员
+            <input id="dormManager" type="radio" name="flag" value="宿舍管理员" /> 宿舍管理员
         </label>
         <label class="radio inline">
-            <input id="student" type="radio" name="flag" value="学生"  ${userType==3?'checked':''}/> 学生
+            <input id="student" type="radio" name="flag" value="学生"  /> 学生
         </label>
 
 
@@ -119,15 +118,20 @@
         <button class="btn btn-large btn-primary" type="reset" >重置</button>
         </div>
         <div class="lost">
-            <button style="float: left;"  class="btn"  type="submit">忘记密码</button>
-        &nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;
-        <a style="float: right;" class="btn " href="<c:url value='/jsp2/register.jsp'/>" target="body" id="z" >注册</a> </div>
+<%--            <form  class="form-signin" action="${pageContext.request.contextPath}/login/forget" method="post" >--%>
+                <button style="float: left;"  class="btn"  type="submit">忘记密码</button>
+<%--            </form>--%>
+            &nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;
+            <a style="float: right;" class="btn " href="<c:url value='/jsp2/register.jsp'/>" target="body" id="z" >注册</a>
+         </div>
     </form>
+
    </div>
 
 <div align="center">
     <font id="error" color="red">${error1}</font>
     <font id="error2" color="red">${error2}</font>
+    <font id="error3" color="red"></font>
 </div>
 </body>
 </html>

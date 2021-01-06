@@ -64,6 +64,23 @@ public class UserHandler {
         }
         return "forward:/index.jsp";
     }
+//    @RequestMapping("/forget")
+//    public String doforget(String username, String password,String flag,  Model model, HttpSession session) throws Exception {
+//
+//        System.out.println("忘记密码接受到的数据username="+username);
+//        System.out.println("忘记密码接受到的数据password="+password);
+//        System.out.println("忘记密码接受到的数据flag="+flag);
+//        if(username!=null){
+//        User user = userService.selectByusername(username);
+//        if(username!=user.getUsername()||username == user.getUsername()&&flag!=user.getFlag()){
+//            session.setAttribute("error2", "对不起，没有查到此用户!");
+//        }else {
+//            session.setAttribute("error2", "你的密码是:" + user.getPassword());
+//        }
+//
+//        }
+//        return "forward:/index.jsp";
+//    }
     @RequestMapping("/register")
     public String doRegister(User user, Model model, HttpSession session) throws Exception {
 
@@ -112,6 +129,8 @@ public class UserHandler {
         request.setAttribute("mainPage", "/jsp1/update_password.jsp");
         //设置响应视图
         User user = (User) request.getSession().getAttribute("user");
+        //将用户信息传递给修改密码页面
+        request.setAttribute("user",user);
         if ("系统管理员".equals(user.getFlag())) {
             return "admin";
         } else if ("宿舍管理员".equals(user.getFlag())) {

@@ -43,7 +43,7 @@
     <form class="form-search" action="${pageContext.request.contextPath}/absence/compoundabsence?pageStartIndex=${pageStartIndex}&&pagenum=${page.pagenum}" method="post" style="float: right" onsubmit="return checkForm()">
         <span> 指定日期:</span>
         <span class="controls input-append date form_date" style="margin-right: 10px" data-date-format="yyyy-mm-dd" data-link-format="yyyy-mm-dd" >
-                <input type="date" id="date" name="time" style="width:120px;height: 30px;" placeholder="日期"  value="${absence1.time }" >
+                <input type="date" id="date" name="time" style="width:145px;height: 30px;" placeholder="日期"  value="${absence1.time }" >
                 <span class="add-on"><button id="btn">清空</button></span>
                 <span class="add-on"><i class="icon-th"></i></span>
             </span>
