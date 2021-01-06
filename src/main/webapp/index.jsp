@@ -1,5 +1,19 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<script type="text/javascript">
+    function checkForm(){
+        var username=document.getElementById("username").value;
+        var password=document.getElementById("password").value;
+
+
+        if(username==""||password==""){
+            document.getElementById("error").innerHTML="你还没有输入账号和密码！";
+            return false;
+        }
+        return true;
+    }
+
+</script>
 <html>
 <style type="text/css">
     body {
@@ -80,11 +94,11 @@
     <font color="red">${msg}</font>
 </div>
 <div class="container">
-    <form  class="form-signin" action="${pageContext.request.contextPath}/login/first" method="post">
+    <form  class="form-signin" action="${pageContext.request.contextPath}/login/first" method="post" onsubmit="return checkForm()">
         <h2 class="form-signin-heading"><font color="gray">校园宿舍管理系统</font></h2>
         <div class="input">
-        <input  name="username" type="text" class="input-block-level" placeholder="用户名...">
-        <input  name="password" type="password" class="input-block-level" placeholder="密码..." ><br>
+        <input id="username"  name="username" type="text" class="input-block-level" placeholder="用户名...">
+        <input id="password" name="password" type="password" class="input-block-level" placeholder="密码..." ><br>
         </div>
 
 
