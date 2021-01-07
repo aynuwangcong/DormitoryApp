@@ -73,7 +73,7 @@
 <div class="container-fluid0">
     <div region="north" style="height: 100px;background-image: url('${pageContext.request.contextPath}/images/bg.jpg')">
         <div align="left" style="width: 80%;height:100px ;float: left;padding-top: 40px;padding-left: 30px;" ><font color="white" size="6" >校园宿舍管理系统</font></div>
-        <div style="padding-top: 70px;padding-right: 20px;font-weight: bolder;font-size: 25px;"><i class="fa fa-user-circle" aria-hidden="true"></i> 当前用户：&nbsp;<font color="red" >${username}</font></div>
+        <div style="padding-top: 70px;padding-right: 20px;font-weight: bolder;font-size: 25px;"><i class="fa fa-user-circle" aria-hidden="true"></i> 当前用户：&nbsp;<font color="red" >${user.name}</font></div>
     </div>
 </div>
 <div class="container-fluid">

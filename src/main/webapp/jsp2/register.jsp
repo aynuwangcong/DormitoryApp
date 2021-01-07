@@ -71,7 +71,7 @@
             </tr>
             <tr>
                 <td><font color="red">*</font>身份：</td>
-<%--                <td><input type="text" id="flag"  name="flag"  style="margin-top:5px;height:30px;" /></td>--%>
+
            <td> <select id="flag" name="flag" style="margin-top:5px;height:30px;" onchange="this">
                     <option>系统管理员</option>
                     <option>宿舍管理员</option>

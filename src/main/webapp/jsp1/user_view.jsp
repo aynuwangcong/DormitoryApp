@@ -62,7 +62,7 @@ function pageNumCheck() {
                     <td>${c.flag}</td>
 
                     <td><button class="btn btn-mini btn-info" type="button" onclick="javascript:window.location='${pageContext.request.contextPath}/login/preAdd?username=${c.username}&&pageStartIndex=${pageStartIndex}'">更改权限</button>&nbsp;
-<%--                        <button class="btn btn-mini btn-danger" type="button" onclick="dormManagerDelete(${c.username})">删除1</button>--%>
+
                     </td>
                    <td><button class="btn btn-mini btn-danger" type="button" onsubmit="return checkForm()" onclick="javascript:window.location='${pageContext.request.contextPath}/login/delete?username=${c.username}&&pageStartIndex=${pageStartIndex}'">删除</button></td>
                 </tr>

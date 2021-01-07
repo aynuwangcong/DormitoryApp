@@ -36,8 +36,6 @@ public class ManageHandler {
             System.out.println("pagenum========="+pagenum);
             page = manageService.findCurrentPage(pagenum);
         }
-
-
         System.out.println("pageStartIndex="+page.getPageStartIndex());
         request.getSession().setAttribute("pageStartIndex",page.getPageStartIndex());
         System.out.println("查询学生当前页1");
@@ -47,7 +45,6 @@ public class ManageHandler {
         System.out.println("查询学生当前页2");
         //将list存放到request域中
         request.setAttribute("contactorList", page.getDatas());
-//        request.setAttribute("page",page);
         request.getSession().setAttribute("page",page);
         request.setAttribute("mainPage", "/jsp1/manage_view.jsp");
 

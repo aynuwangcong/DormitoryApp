@@ -18,8 +18,8 @@
     body {
         padding-top: 200px;
         padding-bottom: 40px;
-        /*background-image: url('https://s3.jpg.cm/2020/12/14/FF4vk.jpg');*/
-        background-image: url('${pageContext.request.contextPath}/images/bg.jpg');
+        background-image: url('https://s3.jpg.cm/2021/01/07/p99Sy.jpg');
+        <%--background-image: url('${pageContext.request.contextPath}/images/1.jpg');--%>
         background-position: center;
         background-repeat: no-repeat;
         background-attachment: fixed;
@@ -31,7 +31,8 @@
         max-width: 300px;
         padding: 19px 29px 0px;
         margin: 0 auto 20px;
-        background-color: #fff;
+        /*background-color: #fff;*/
+        background-color:rgba(229,229,229,0.4);
         border: 1px solid #e5e5e5;
         -webkit-border-radius: 5px;
         -moz-border-radius: 5px;
@@ -86,13 +87,92 @@
     a{
         text-decoration: none;
     }
+    .xin{
+    color: #3863FF;
+    }
+    .text{
+        background-image: -webkit-linear-gradient(left,blue,#66ffff 10%,#cc00ff 20%,#CC00CC 30%, #CCCCFF 40%, #00FFFF 50%,#CCCCFF 60%,#CC00CC 70%,#CC00FF 80%,#66FFFF 90%,blue 100%);
+        -webkit-text-fill-color: transparent;/* 将字体设置成透明色 */
+        -webkit-background-clip: text;/* 裁剪背景图，使文字作为裁剪区域向外裁剪 */
+        -webkit-background-size: 200% 100%;
+        -webkit-animation: masked-animation 4s linear infinite;
+    }
+   .ds{
+        width: 240px;
+        height: 100px;
+        background-color:rgba(229,229,229,0.1);
+        float: left;
+        position: relative;
+        top: -200px;
+        left:0;
+    }
+    .ds #p2{
+        font-size: 15px;
+        background-color:rgba(229,229,229,0.0);
+        text-align: center;
+        color: #bd362f;
+        padding-bottom: 10px;
+    }
+     .ds div{
+        width: 46px;
+        height: 46px;
+        text-align: center;
+        line-height: 46px;
+         background-color:rgba(229,229,229,0.0);
+        float: left;
+    }
+     .ds #mm,.ds #mm1,.ds #mm2{
+        width: 15px;
+        height: 46px;
+         background-color:rgba(229,229,229,0.0);
+        line-height: 46px;
+        font-size: 20px;
+        text-align: center;
+    }
+     .ds #d{
+     margin-left: 10px;
+    }
+    .ji{
+        position: relative;
+        top: 0;
+        left: -240px;
+    }
 </style>
 <body>
+<div class="ds">
+    <p id="p2">距离除夕开始还有</p>
+    <div id="d"></div>
 
+    <div id="mm2">:</div>
+    <div id="h"></div>
+
+    <div id="mm">:</div>
+
+    <div id="m"></div>
+
+    <div id="mm1">:</div>
+
+    <div id="s"></div>
+</div>
+<div class="ji" style="float: left;margin-left: 100px;margin-top: 50px;">
+    <div class="xin">
+        新的一年<br>
+        你都有什么愿望呢<br>
+        快来查看去年的你有多少次缺勤记录吧<br>
+    </div>
+    <div class="text">
+        <p>
+            希望你想陪伴的人此刻正伴你左右<br><br>
+            愿四海之内皆平安<br><br>
+            ......<br>
+        </p>
+    </div>
+</div>
 <div align="center">
     <font color="red">${msg}</font>
 </div>
 <div class="container">
+
     <form  class="form-signin" action="${pageContext.request.contextPath}/login/first" method="post" onsubmit="return checkForm()">
         <h2 class="form-signin-heading"><font color="gray">校园宿舍管理系统</font></h2>
         <div class="input">
@@ -133,5 +213,34 @@
     <font id="error2" color="red">${error2}</font>
     <font id="error3" color="red"></font>
 </div>
+<script type="text/javascript">
+    var endTime= new Date('2021-02-11 00:00:00'),endSeconds=endTime.getTime();
+    var d=h=m=s=0;
+    var id=setInterval(seckill,1000);
+    function seckill(){
+    var nowTime=new Date();
+    remaining=parseInt((endSeconds-nowTime.getTime())/1000);
+    if(remaining>0){
+    d=parseInt(remaining/86400);
+    h=parseInt((remaining/3600)%24);
+    m=parseInt((remaining/60)%60);
+    s=parseInt(remaining%60);
+
+    d=d<10?'0'+d:d;
+    h=h<10?'0'+h:h;
+    m=m<10?'0'+m:m;
+    s=s<10?'0'+s:s;
+    }
+    else{
+    clearInterval(id);
+    d=h=m=s='00';
+
+    }
+    document.getElementById('d').innerHTML=d+'天';
+    document.getElementById('h').innerHTML=h+'时';
+    document.getElementById('m').innerHTML=m+'分';
+    document.getElementById('s').innerHTML=s+'秒';
+    }
+   </script>
 </body>
 </html>

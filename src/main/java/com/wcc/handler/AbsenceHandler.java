@@ -176,14 +176,14 @@ public class AbsenceHandler {
             return "student";
         }
     }
-    @RequestMapping("/preAdd")
+    @RequestMapping("/preAdd")//学生补假预修改
     public String dothird(Model model, HttpServletRequest request, int pageStartIndex) throws Exception {
         ModelAndView mv = new ModelAndView();
 
         System.out.println("预添加修改接收的数据 pageStartIndex="+pageStartIndex);
         request.setAttribute("pageStartIndex",pageStartIndex);
 
-        //辨别是修改还是添加
+        //修改
         String student_id=null;
         student_id = request.getParameter("student_id");
         Absence absence = new Absence();
@@ -202,7 +202,7 @@ public class AbsenceHandler {
             return "student";
         }
     }
-    @RequestMapping("/preAdd1")
+    @RequestMapping("/preAdd1")//学生补假
     public String dothird1(Model model, HttpServletRequest request, int pageStartIndex) throws Exception {
         ModelAndView mv = new ModelAndView();
 

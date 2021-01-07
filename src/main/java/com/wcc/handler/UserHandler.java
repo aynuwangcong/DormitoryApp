@@ -31,10 +31,6 @@ public class UserHandler {
     @RequestMapping("/first")
     public String doFirst(String username, String password,String flag, Model model, HttpSession session) throws Exception {
 
-
-        System.out.println("flag==============="+flag);
-        System.out.println("username==========="+username);
-        System.out.println("password==========="+password);
         if(username!=null&&password==null||password==""){
             session.removeAttribute("error2");//移除密码提示的session
             session.removeAttribute("error1");//移除登录错误提示的session
@@ -163,7 +159,6 @@ public class UserHandler {
         System.out.println("查询学生当前页2");
         //将list存放到request域中
         request.setAttribute("contactorList", page.getDatas());
-//        request.setAttribute("page", page);
         request.getSession().setAttribute("page",page);
         request.setAttribute("mainPage", "/jsp1/user_view.jsp");
 
