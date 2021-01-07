@@ -1,13 +1,7 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: 聪聪
-  Date: 2020/12/18
-  Time: 15:30
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
+<link rel="icon" href="${pageContext.request.contextPath}/images/1.png" sizes="65x65">
 <head>
     <title>用户注册</title>
     <script type="text/javascript">
@@ -37,7 +31,7 @@
         margin-top: 200px;
     }
    body{
-       background-image: url('${pageContext.request.contextPath}/images/bg.jpg');
+       background-image: url('https://s3.jpg.cm/2021/01/07/p99Sy.jpg');
    }
    #zhuce:hover{
        color: red;
@@ -49,8 +43,12 @@
    }
 </style>
 <body>
+
 <form action="${pageContext.request.contextPath}/login/register" method="post" onsubmit="return checkForm()">
     <div id="data_form" class="data_form"  align="center">
+        <div align="center" >
+            <font color="red">${rsg}</font>
+        </div>
           <h1 style="text-align: center">用户注册账号</h1>
         <table align="center">
             <tr>
@@ -73,7 +71,6 @@
                 <td><font color="red">*</font>身份：</td>
 
            <td> <select id="flag" name="flag" style="margin-top:5px;height:30px;" onchange="this">
-                    <option>系统管理员</option>
                     <option>宿舍管理员</option>
                     <option>学生</option>
                 </select>  </td>

@@ -40,6 +40,9 @@
     <select id="findAllUser" resultType="User">
         select * from user where flag="宿舍管理员" or flag="学生" limit #{pageStartIndex},6
     </select>
+    <select id="findAllUser1" resultType="User">
+        select * from user
+    </select>
     <delete id="deleteUser" >
         delete from user where username= #{username}
     </delete>

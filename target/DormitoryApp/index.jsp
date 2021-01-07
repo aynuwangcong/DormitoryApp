@@ -14,6 +14,7 @@
 
 </script>
 <html>
+<link rel="icon" href="${pageContext.request.contextPath}/images/1.png" sizes="70x70">
 <style type="text/css">
     body {
         padding-top: 200px;
@@ -31,7 +32,6 @@
         max-width: 300px;
         padding: 19px 29px 0px;
         margin: 0 auto 20px;
-        /*background-color: #fff;*/
         background-color:rgba(229,229,229,0.4);
         border: 1px solid #e5e5e5;
         -webkit-border-radius: 5px;
@@ -40,7 +40,6 @@
         -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
         -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
         box-shadow: 0 1px 2px rgba(0,0,0,.05);
-
     }
     .form-signin input[type="text"],
     .form-signin input[type="password"] {
@@ -137,6 +136,9 @@
         top: 0;
         left: -240px;
     }
+    #username,#password{
+        background-color:rgba(229,229,229,0.5);
+    }
 </style>
 <body>
 <div class="ds">
@@ -168,7 +170,7 @@
         </p>
     </div>
 </div>
-<div align="center">
+<div style="text-align: left;margin-left: 445px;">
     <font color="red">${msg}</font>
 </div>
 <div class="container">

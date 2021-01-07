@@ -27,4 +27,6 @@ public interface IUserDao {
     List<User> findAllUser(int pageStartIndex);
 
     void deleteUser(String username);
+
+    List<User> findAllUser1();
 }

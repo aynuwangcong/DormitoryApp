@@ -25,4 +25,6 @@ public interface IUserService {
  List<User> findAllUser2(int pageStartIndex);
 
  void removeUser(String username);
+
+ List<User> findAllUser();
 }

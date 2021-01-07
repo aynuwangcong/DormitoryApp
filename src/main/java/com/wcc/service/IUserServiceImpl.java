@@ -69,4 +69,10 @@ public class IUserServiceImpl implements IUserService {
          userDao.deleteUser(username);
     }
 
+    @Override
+    public List<User> findAllUser() {
+        return userDao.findAllUser1();
+    }
+
+
 }

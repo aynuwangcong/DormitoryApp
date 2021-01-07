@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>校园宿舍管理系统</title>
 
-    <link rel="icon" href="${pageContext.request.contextPath}/images/1.png" sizes="40x40">
+    <link rel="icon" href="${pageContext.request.contextPath}/images/1.png" sizes="65x65">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/font-awesome/css/font-awesome.min.css">
     <link href="${pageContext.request.contextPath}/style/dorm.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/bootstrap/css/bootstrap.css" rel="stylesheet">

@@ -79,11 +79,20 @@ public class UserHandler {
 //    }
     @RequestMapping("/register")
     public String doRegister(User user, Model model, HttpSession session) throws Exception {
-
+        
         System.out.println("注册用户接受到的数据"+user);
-        //添加用户
+        //查找所以用户
+        List<User> users=userService.findAllUser();
+        //查找所有用户中有没有和当前注册用户有相同的
+        for(User u:users){
+            if(user.getUsername().equals(u.getUsername())){
+                session.setAttribute("rsg","你注册的账号已被使用，请重新选择一个账号!");
+                return "forward:/jsp2/register.jsp";
+            }
+        }
+        //如果没有相同的则添加用户
         userService.addUser(user);
-
+        //返回登录页面
         return "forward:/index.jsp";
     }
     @RequestMapping("/loss")
